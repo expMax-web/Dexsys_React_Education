@@ -1,15 +1,15 @@
 import React from "react";
-import classes from "./CharacterCard.module.css";
 
-const CharacterCard = ({image, name}) => {
+import styles from "./CharacterCard.module.css";
+
+export const CharacterCard = ({image, name}) => {
   return (
-    <figure className={classes.CharacterCard}>
-      <p className={classes.ImgContainer}>
-        <img src={image} alt="" className={classes.CharacterImg}/>
+    <figure className={styles.CharacterCard}>
+      <p className={styles.ImgContainer}>
+        <img src={image} alt={name} className={styles.CharacterImg}/>
       </p>
-      <figcaption className={classes.CharactersName}>{name}</figcaption>
+      <figcaption className={styles.CharactersName}>{name}</figcaption>
     </figure>
   );
 };
 
-export default CharacterCard;

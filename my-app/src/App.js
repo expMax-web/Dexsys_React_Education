@@ -1,20 +1,9 @@
 import React from "react";
-import "./styles.css";
-import Navbar from "./components/Navbar/Navbar";
-import CharacterCard from "./components/CharacterCard/CharacterCard";
-import UpButton from "./components/UpButton/UpButton";
-import { useQuery, gql } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 
-const GET_CHARACTERS_INFO = gql`
-  query getCharacters {
-    characters {
-      results {
-        name
-        image
-      }
-    }
-  }
-`;
+import { Navbar } from "./components/Navbar/Navbar";
+import { CardsContainer } from "./components/CardsContainer/CardsContainer";
+import { GET_CHARACTERS_INFO } from "./components/CardsContainer/queries/getCharactersInfo";
 
 function App() {
   const { loading, error, data } = useQuery(GET_CHARACTERS_INFO);
@@ -24,12 +13,7 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      <main className="Container" id="scrolledBlock">
-        {data?.characters?.results.map((character) => (
-          <CharacterCard image={character.image} name={character.name} />
-        ))}
-        <UpButton>Вверх</UpButton>
-      </main>
+      <CardsContainer data={data} />
     </div>
   );
 }

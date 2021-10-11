@@ -1,9 +1,8 @@
 import React from "react";
-import classes from "./UpButton.module.css";
 
+import styles from "./UpButton.module.css";
 
-
-const UpButton = ({ children, scroll}) => {
+export const UpButton = ({ children, scroll}) => {
   const scrollToTop = () => {
     console.log("GoUp");
     window.scrollTo({
@@ -11,9 +10,7 @@ const UpButton = ({ children, scroll}) => {
       behavior: "smooth",
     });
   };
-  return <button onClick={scrollToTop} className={classes.ButtonUp}>{children}</button>;
+  return <button onClick={scrollToTop} className={styles.ButtonUp}>{children}</button>;
 };
-
-export default UpButton;
 
 

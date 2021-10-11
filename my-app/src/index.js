@@ -1,15 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./App";
-import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
+import { ApolloProvider } from "@apollo/client";
 
-const client = new ApolloClient({
-  uri: "https://rickandmortyapi.com/graphql",
-  cache: new InMemoryCache(),
-  fetchOptions: {
-    mode: "no-cors",
-  },
-});
+import App from "./App";
+import client from "./api/apolloClient";
 
 ReactDOM.render(
   <ApolloProvider client={client}>
