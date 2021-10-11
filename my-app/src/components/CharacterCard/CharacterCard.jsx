@@ -1,13 +1,13 @@
 import React from "react";
 import classes from "./CharacterCard.module.css";
 
-const CharacterCard = ({ children, ...props }) => {
+const CharacterCard = ({image, name}) => {
   return (
     <figure className={classes.CharacterCard}>
       <p className={classes.ImgContainer}>
-        <img src="" alt="" />
+        <img src={image} alt="" />
       </p>
-      <figcaption className={classes.CharactersName}></figcaption>
+      <figcaption className={classes.CharactersName}>{name}</figcaption>
     </figure>
   );
 };
