@@ -8,13 +8,19 @@
 }
 
 .ImgContainer {
-  height: 80%;
+  height: 75%;
 }
 
 .CharactersName {
   background-color: #e5e5e5;
-  height: 20%;
+  height: 25%;
   border: 1px solid black;
   border-bottom-right-radius: 15px;
   border-bottom-left-radius: 20px;
+  padding: 20px;
+  font-size: 20px;
+}
+
+.CharacterImg {
+  width: 100%;
 }
