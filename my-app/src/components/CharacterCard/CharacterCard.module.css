@@ -1,0 +1,20 @@
+.CharacterCard {
+  width: 230px;
+  height: 300px;
+  border: 1px solid blue;
+  border-radius: 20px;
+  margin: 60px;
+  overflow: hidden;
+}
+
+.ImgContainer {
+  height: 80%;
+}
+
+.CharactersName {
+  background-color: #e5e5e5;
+  height: 20%;
+  border: 1px solid black;
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 20px;
+}
