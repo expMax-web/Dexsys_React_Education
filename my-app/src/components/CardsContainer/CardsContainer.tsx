@@ -1,17 +1,21 @@
-import { useState, useEffect } from "react";
+import React from "react";
+import { useState } from "react";
 
 import { CharacterCard } from "../CharacterCard/CharacterCard";
 import { UpButton } from "../UpButton/UpButton";
 
 import styles from "./CardsContainer.module.scss";
 
-export const CardsContainer = ({ data }) => {
-  const [showScroll, setShowScroll] = useState(false);
+interface CardsContainerProps {
+  data: any;
+}
+
+export const CardsContainer: React.FC<CardsContainerProps> = ({ data }) => {
+  const [showScroll, setShowScroll] = useState<Boolean>(false);
 
   const checkScrollTop = () => {
     if (!showScroll && window.pageYOffset > 300) {
       setShowScroll(true);
-      console.log(1);
     }
     if (showScroll && window.pageYOffset <= 300) {
       setShowScroll(false);
@@ -30,7 +34,7 @@ export const CardsContainer = ({ data }) => {
   };
   return (
     <main className={styles.Container}>
-      {data?.characters?.results.map((character) => (
+      {data?.characters?.results.map((character: any) => (
         <CharacterCard
           image={character.image}
           name={character.name}

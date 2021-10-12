@@ -1,8 +1,8 @@
-import React from "react";
+import * as React from "react";
 
 import styles from "./Navbar.module.css";
 
-export const Navbar = ({ children, ...props }) => {
+export const Navbar: React.FC = () => {
   return (
     <header className={styles.Navbar}>
       <h1 className={styles.NavbarTitle}>Rick and Morty</h1>
