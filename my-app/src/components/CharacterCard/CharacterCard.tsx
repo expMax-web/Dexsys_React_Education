@@ -2,7 +2,15 @@ import React from "react";
 
 import styles from "./CharacterCard.module.css";
 
-export const CharacterCard = ({ image, name }) => {
+interface CharacterCardProps {
+  image: any;
+  name: any;
+}
+
+export const CharacterCard: React.FC<CharacterCardProps> = ({
+  image,
+  name,
+}) => {
   return (
     <figure className={styles.CharacterCard}>
       <p className={styles.ImgContainer}>
