@@ -18,12 +18,7 @@ export const CardsContainer = ({ data }) => {
     }
   };
 
-  useEffect(() => {
-    window.addEventListener("scroll", checkScrollTop);
-    return () => {
-      window.removeEventListener("scroll", checkScrollTop);
-    };
-  });
+  window.addEventListener("scroll", checkScrollTop);
 
   const scrollToTop = () => {
     console.log("GoUp");
