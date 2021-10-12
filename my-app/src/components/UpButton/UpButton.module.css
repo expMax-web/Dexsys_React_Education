@@ -1,0 +1,7 @@
+.ButtonUp {
+  position: fixed;
+  bottom: 50px;
+  right: 100px;
+  padding: 10px 30px;
+  font-size: 20px;
+}
