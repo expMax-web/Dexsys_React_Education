@@ -5,7 +5,7 @@ import { Navbar } from "./components/Navbar/Navbar";
 import { CardsContainer } from "./components/CardsContainer/CardsContainer";
 import { GET_CHARACTERS_INFO } from "./components/CardsContainer/queries/getCharactersInfo";
 
-const App: React.FC = () => {
+function App() {
   const { loading, error, data } = useQuery(GET_CHARACTERS_INFO);
   console.log(data);
   if (loading) return <p>Loading...</p>;
@@ -16,6 +16,6 @@ const App: React.FC = () => {
       <CardsContainer data={data} />
     </div>
   );
-};
+}
 
 export default App;
