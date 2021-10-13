@@ -2,12 +2,12 @@ import React from "react";
 
 import styles from "./CharacterCard.module.css";
 
-interface CharacterCardProps {
+interface CardsContainerProps {
   image: any;
   name: any;
 }
 
-export const CharacterCard: React.FC<CharacterCardProps> = ({
+export const CharacterCard: React.FC<CardsContainerProps> = ({
   image,
   name,
 }) => {

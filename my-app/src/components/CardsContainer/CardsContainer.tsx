@@ -1,8 +1,11 @@
 import React from "react";
 import { useState } from "react";
 
+import { GetCharactersQuery } from "../../api/types";
+
 import { CharacterCard } from "../CharacterCard/CharacterCard";
 import { UpButton } from "../UpButton/UpButton";
+import { Characters } from "../../api/types";
 
 import styles from "./CardsContainer.module.scss";
 
@@ -32,6 +35,8 @@ export const CardsContainer: React.FC<CardsContainerProps> = ({ data }) => {
     });
     setShowScroll(false);
   };
+  console.log(data);
+
   return (
     <main className={styles.Container}>
       {data?.characters?.results.map((character: any) => (
