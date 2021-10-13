@@ -3,8 +3,8 @@ import React from "react";
 import styles from "./CharacterCard.module.css";
 
 interface CardsContainerProps {
-  image: any;
-  name: any;
+  image: "String";
+  name: "String";
 }
 
 export const CharacterCard: React.FC<CardsContainerProps> = ({

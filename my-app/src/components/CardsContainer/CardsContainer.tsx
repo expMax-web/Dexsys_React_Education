@@ -1,19 +1,19 @@
 import React from "react";
 import { useState } from "react";
 
-import { GetCharactersQuery } from "../../api/types";
-
 import { CharacterCard } from "../CharacterCard/CharacterCard";
 import { UpButton } from "../UpButton/UpButton";
-import { Characters } from "../../api/types";
+import { Maybe, Character } from "../../api/types";
 
 import styles from "./CardsContainer.module.scss";
 
 interface CardsContainerProps {
-  data: any;
+  characters: Maybe<Array<Maybe<Character>>> | null;
 }
 
-export const CardsContainer: React.FC<CardsContainerProps> = ({ data }) => {
+export const CardsContainer: React.FC<CardsContainerProps> = ({
+  characters,
+}) => {
   const [showScroll, setShowScroll] = useState<Boolean>(false);
 
   const checkScrollTop = () => {
@@ -35,18 +35,18 @@ export const CardsContainer: React.FC<CardsContainerProps> = ({ data }) => {
     });
     setShowScroll(false);
   };
-  console.log(data);
+  console.log(characters);
 
   return (
     <main className={styles.Container}>
-      {data?.characters?.results.map((character: any) => (
+      {characters?.map((character: any) => (
         <CharacterCard
           image={character.image}
           name={character.name}
           key={character.id}
         />
       ))}
-      {showScroll && <UpButton scrollToTop={scrollToTop}>Вверх</UpButton>}
+      {showScroll && <UpButton scrollToTop={scrollToTop}>▲</UpButton>}
     </main>
   );
 };

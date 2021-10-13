@@ -19,18 +19,12 @@ const App: React.FC = () => {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error {error.message}</p>;
 
-  //   const characters:({
-  //     id?: string | null | undefined;
-  //     name?: string | null | undefined;
-  //     image?: string | null | undefined;
-  // } | null | undefined)[] | null} = data?.characters?.results;
-  //   // Maybe<Array<Maybe<Character> | undefined> | undefined>
-  //   // data?.characters?.results;
+  const characters = data?.characters?.results as Maybe<Character[]>;
 
   return (
     <div className="App">
       <Navbar />
-      <CardsContainer data={data} />
+      <CardsContainer characters={characters} />
     </div>
   );
 };
