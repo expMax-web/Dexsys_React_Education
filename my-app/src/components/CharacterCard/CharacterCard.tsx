@@ -9,7 +9,7 @@ import styles from "./CharacterCard.module.css";
 interface CardsContainerProps {
   image: Maybe<string> | undefined;
   name: Maybe<string> | undefined;
-  id: any;
+  id: Maybe<string> | undefined;
 }
 
 export const CharacterCard: React.FC<CardsContainerProps> = ({
@@ -18,11 +18,8 @@ export const CharacterCard: React.FC<CardsContainerProps> = ({
   id,
 }) => {
   return (
-    <Link
-      style={{ textDecoration: "none", color: "inherit" }}
-      to={`/character/${id}`}
-    >
-      <figure className={styles.CharacterCard} id={id}>
+    <Link to={`/character/${id}`} className={styles.Link}>
+      <figure className={styles.CharacterCard} id={id || ""}>
         {image && name ? (
           <p className={styles.ImgContainer}>
             <img src={image} alt={name} className={styles.CharacterImg} />

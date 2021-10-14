@@ -29,3 +29,7 @@
 .CharacterImg {
   width: 100%;
 }
+.Link {
+  color: inherit;
+  text-decoration: none;
+}
