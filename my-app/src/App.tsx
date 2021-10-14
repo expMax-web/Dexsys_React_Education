@@ -3,7 +3,7 @@ import { Route, Switch, Redirect, withRouter } from "react-router-dom";
 
 import { Navbar } from "./components/Navbar/Navbar";
 import CharacterPage from "./pages/CharacterPage";
-import Home from "./pages/Home";
+import { Home } from "./pages/Home";
 
 const App: React.FC = () => {
   return (

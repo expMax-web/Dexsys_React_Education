@@ -10,7 +10,7 @@ import {
   Maybe,
 } from "../api/types";
 
-const Home: React.FC = () => {
+export const Home: React.FC = () => {
   const { loading, error, data } = useQuery<
     GetCharactersQuery,
     GetCharactersQueryVariables
@@ -22,5 +22,3 @@ const Home: React.FC = () => {
 
   return <CardsContainer characters={characters} />;
 };
-
-export default Home;
