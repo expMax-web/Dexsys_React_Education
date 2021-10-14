@@ -1,10 +1,13 @@
 import React from "react";
 
+import { Maybe } from "../../api/types";
+
 import styles from "./CharacterCard.module.css";
+import { ImgNotFound } from "../ImgNotFound/ImgNotFound";
 
 interface CardsContainerProps {
-  image: "String";
-  name: "String";
+  image: Maybe<string> | undefined;
+  name: Maybe<string> | undefined;
 }
 
 export const CharacterCard: React.FC<CardsContainerProps> = ({
@@ -13,9 +16,13 @@ export const CharacterCard: React.FC<CardsContainerProps> = ({
 }) => {
   return (
     <figure className={styles.CharacterCard}>
-      <p className={styles.ImgContainer}>
-        <img src={image} alt={name} className={styles.CharacterImg} />
-      </p>
+      {image && name ? (
+        <p className={styles.ImgContainer}>
+          <img src={image} alt={name} className={styles.CharacterImg} />
+        </p>
+      ) : (
+        <ImgNotFound />
+      )}
       <figcaption className={styles.CharactersName}>{name}</figcaption>
     </figure>
   );

@@ -8,7 +8,7 @@ import { Maybe, Character } from "../../api/types";
 import styles from "./CardsContainer.module.scss";
 
 interface CardsContainerProps {
-  characters: Maybe<Array<Maybe<Character>>> | null;
+  characters: Maybe<Character[]>;
 }
 
 export const CardsContainer: React.FC<CardsContainerProps> = ({
@@ -39,13 +39,16 @@ export const CardsContainer: React.FC<CardsContainerProps> = ({
 
   return (
     <main className={styles.Container}>
-      {characters?.map((character: any) => (
-        <CharacterCard
-          image={character.image}
-          name={character.name}
-          key={character.id}
-        />
-      ))}
+      {characters &&
+        characters
+          ?.filter((character) => character)
+          .map((character: Character) => (
+            <CharacterCard
+              image={character.image}
+              name={character.name}
+              key={character.id}
+            />
+          ))}
       {showScroll && <UpButton scrollToTop={scrollToTop}>▲</UpButton>}
     </main>
   );
