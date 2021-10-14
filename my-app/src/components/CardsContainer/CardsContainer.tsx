@@ -35,7 +35,6 @@ export const CardsContainer: React.FC<CardsContainerProps> = ({
     });
     setShowScroll(false);
   };
-  console.log(characters);
 
   return (
     <main className={styles.Container}>
@@ -47,6 +46,7 @@ export const CardsContainer: React.FC<CardsContainerProps> = ({
               image={character.image}
               name={character.name}
               key={character.id}
+              id={character.id}
             />
           ))}
       {showScroll && <UpButton scrollToTop={scrollToTop}>▲</UpButton>}

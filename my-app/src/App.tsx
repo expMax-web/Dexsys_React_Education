@@ -11,7 +11,7 @@ const App: React.FC = () => {
       <Navbar />
       <Switch>
         <Route path="/home" component={Home} />
-        <Route path="/character" component={CharacterPage} />
+        <Route path="/character/:id" component={CharacterPage} />
         <Redirect from="/" to="/home" />
       </Switch>
     </div>
