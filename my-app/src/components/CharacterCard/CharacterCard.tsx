@@ -1,9 +1,9 @@
 import React from "react";
 
 import { Maybe } from "../../api/types";
+import { ImgNotFound } from "../ImgNotFound/ImgNotFound";
 
 import styles from "./CharacterCard.module.css";
-import { ImgNotFound } from "../ImgNotFound/ImgNotFound";
 
 interface CardsContainerProps {
   image: Maybe<string> | undefined;
