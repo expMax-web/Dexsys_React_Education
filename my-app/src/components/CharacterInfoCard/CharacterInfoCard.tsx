@@ -1,6 +1,7 @@
 import React from "react";
 
 import { Maybe } from "../../api/types";
+import { InfoItem } from "../InfoItem/InfoItem";
 
 import styles from "./CharacterInfoCard.module.css";
 
@@ -39,58 +40,26 @@ export const CharacterInfoCard: React.FC<CharacterInfoCardProps> = ({
           <div className={styles.CharacterNameContainer}>
             <span>{name}</span>
           </div>
-          <div className={styles.CharacterInfoItem}>
-            <span className={styles.CharacterInfoItemDescription}>Gender:</span>
-            <span className={styles.CharacterInfoItemValue}>{gender}</span>
-          </div>
-          <div className={styles.CharacterInfoItem}>
-            <span className={styles.CharacterInfoItemDescription}>
-              Created date:
-            </span>
-            <span className={styles.CharacterInfoItemValue}>{created}</span>
-          </div>
-          <div className={styles.CharacterInfoItem}>
-            <span className={styles.CharacterInfoItemDescription}>Status:</span>
-            <span className={styles.CharacterInfoItemValue}>{status}</span>
-          </div>
-          <div className={styles.CharacterInfoItem}>
-            <span className={styles.CharacterInfoItemDescription}>
-              Species:
-            </span>
-            <span className={styles.CharacterInfoItemValue}>{species}</span>
-          </div>
-          <div className={styles.CharacterInfoItem}>
-            <span className={styles.CharacterInfoItemDescription}>
-              Name of location:
-            </span>
-            <span className={styles.CharacterInfoItemValue}>
-              {locationName}
-            </span>
-          </div>
-          <div className={styles.CharacterInfoItem}>
-            <span className={styles.CharacterInfoItemDescription}>
-              Type of location:
-            </span>
-            <span className={styles.CharacterInfoItemValue}>
-              {locationType}
-            </span>
-          </div>
-          <div className={styles.CharacterInfoItem}>
-            <span className={styles.CharacterInfoItemDescription}>
-              Location dimension:
-            </span>
-            <span className={styles.CharacterInfoItemValue}>
-              {locationDimension}
-            </span>
-          </div>
-          <div className={styles.CharacterInfoItem}>
-            <span className={styles.CharacterInfoItemDescription}>
-              Location creation date:
-            </span>
-            <span className={styles.CharacterInfoItemValue}>
-              {locationCreated}
-            </span>
-          </div>
+          <InfoItem title="Gender:" value={gender || "unknow"} />
+          <InfoItem title="Created date:" value={created || "unknow"} />
+          <InfoItem title="Status:" value={status || "unknow"} />
+          <InfoItem title="Species:" value={species || "unknow"} />
+          <InfoItem
+            title="Name of location:"
+            value={locationName || "unknow"}
+          />
+          <InfoItem
+            title="Type of location:"
+            value={locationType || "unknow"}
+          />
+          <InfoItem
+            title="Location dimension:"
+            value={locationDimension || "unknow"}
+          />
+          <InfoItem
+            title="Location creation date:"
+            value={locationCreated || "unknow"}
+          />
         </div>
       </div>
     </main>
