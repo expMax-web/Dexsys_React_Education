@@ -15,6 +15,7 @@ export const Home: React.FC = () => {
     GetCharactersQuery,
     GetCharactersQueryVariables
   >(GET_CHARACTERS_INFO);
+
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error {error.message}</p>;
 
