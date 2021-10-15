@@ -16,6 +16,9 @@
   box-shadow: 0px 0px 2px rgb(131, 150, 185);
 }
 
+.CharacterImg {
+  padding-top: 15px;
+}
 .CharacterInfoContainer {
   width: 60%;
 }
