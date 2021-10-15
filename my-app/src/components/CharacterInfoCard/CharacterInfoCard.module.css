@@ -1,0 +1,43 @@
+.MainContainer {
+  width: 100%;
+  height: 100%;
+  padding: 50px 0 120px 0;
+  background-color: #f4f7fc;
+}
+
+.CharacterCardContainer {
+  display: flex;
+  justify-content: center;
+  width: 850px;
+  margin: 100px auto 0 auto;
+  background-color: white;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0px 0px 2px rgb(131, 150, 185);
+}
+
+.CharacterInfoContainer {
+  width: 60%;
+}
+
+.CharacterNameContainer {
+  padding: 20px 40px 20px 20px;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.CharacterInfoItem {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 40px 20px 20px;
+  font-size: 18px;
+}
+
+.CharacterInfoItemDescription {
+  font-weight: 400;
+  color: black;
+}
+.CharacterInfoItemValue {
+  font-weight: 600;
+  color: black;
+}

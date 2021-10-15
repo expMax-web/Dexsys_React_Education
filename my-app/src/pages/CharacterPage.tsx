@@ -7,9 +7,10 @@ import {
   GetCharacterByIdQueryVariables,
   GetCharacterByIdQuery,
 } from "../api/types";
+import { CharacterInfoCard } from "../components/CharacterInfoCard/CharacterInfoCard";
 
 const CharacterPage: React.FC = () => {
-  const { id } = useParams<{ id: string }>();
+  const { id } = useParams<{ id: never }>();
 
   const { loading, error, data } = useQuery<
     GetCharacterByIdQuery,
@@ -25,9 +26,18 @@ const CharacterPage: React.FC = () => {
   console.log(data);
 
   return (
-    <div>
-      <h1>Character {id}</h1>
-    </div>
+    <CharacterInfoCard
+      name={data?.character?.name}
+      image={data?.character?.image}
+      gender={data?.character?.gender}
+      created={data?.character?.created}
+      status={data?.character?.status}
+      species={data?.character?.species}
+      locationName={data?.character?.location?.name}
+      locationType={data?.character?.location?.type}
+      locationDimension={data?.character?.location?.dimension}
+      locationCreated={data?.character?.location?.created}
+    />
   );
 };
 
