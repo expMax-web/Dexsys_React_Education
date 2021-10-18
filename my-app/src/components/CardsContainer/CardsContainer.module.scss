@@ -7,4 +7,14 @@
   flex-wrap: wrap;
   justify-content: space-between;
   background-color: #f4f7fc;
+  &_dark {
+    padding: 0px 200px 0px 200px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-color: #636363;
+  }
 }

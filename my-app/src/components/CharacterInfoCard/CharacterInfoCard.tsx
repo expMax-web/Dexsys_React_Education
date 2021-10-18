@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import { Maybe } from "../../api/types";
+import ThemeContext from "../../context";
 import { InfoItem } from "../InfoItem/InfoItem";
 
 import styles from "./CharacterInfoCard.module.css";
@@ -30,8 +31,9 @@ export const CharacterInfoCard: React.FC<CharacterInfoCardProps> = ({
   locationDimension,
   locationCreated,
 }) => {
+  const { isDark } = useContext(ThemeContext);
   return (
-    <main className={styles.MainContainer}>
+    <main className={isDark ? styles.MainContainer_dark : styles.MainContainer}>
       <div className={styles.CharacterCardContainer}>
         <figure className={styles.CharacterImg}>
           <img src={image || ""} alt={name || ""} />

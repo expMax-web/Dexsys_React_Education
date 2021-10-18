@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useState } from "react";
 
 import { CharacterCard } from "../CharacterCard/CharacterCard";
@@ -6,6 +6,7 @@ import { UpButton } from "../UpButton/UpButton";
 import { Maybe, Character } from "../../api/types";
 
 import styles from "./CardsContainer.module.scss";
+import ThemeContext from "../../context";
 
 interface CardsContainerProps {
   characters: Maybe<Character[]>;
@@ -34,9 +35,9 @@ export const CardsContainer: React.FC<CardsContainerProps> = ({
     });
     setShowScroll(false);
   };
-
+  const { isDark } = useContext(ThemeContext);
   return (
-    <main className={styles.Container}>
+    <main className={isDark ? styles.Container_dark : styles.Container}>
       {characters &&
         characters
           ?.filter((character) => character)

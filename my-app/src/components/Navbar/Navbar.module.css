@@ -4,6 +4,17 @@
   height: 75px;
 }
 
+.Navbar_dark {
+  background-color: #23262b;
+  padding: 15px 0px 25px 50px;
+  height: 75px;
+}
+
 .NavbarTitle {
   font-weight: 500;
+}
+
+.NavbarTitle_dark {
+  font-weight: 500;
+  color: white;
 }
