@@ -40,26 +40,14 @@ export const CharacterInfoCard: React.FC<CharacterInfoCardProps> = ({
           <div className={styles.CharacterNameContainer}>
             <span>{name}</span>
           </div>
-          <InfoItem title="Gender:" value={gender || "unknow"} />
-          <InfoItem title="Created date:" value={created || "unknow"} />
-          <InfoItem title="Status:" value={status || "unknow"} />
-          <InfoItem title="Species:" value={species || "unknow"} />
-          <InfoItem
-            title="Name of location:"
-            value={locationName || "unknow"}
-          />
-          <InfoItem
-            title="Type of location:"
-            value={locationType || "unknow"}
-          />
-          <InfoItem
-            title="Location dimension:"
-            value={locationDimension || "unknow"}
-          />
-          <InfoItem
-            title="Location creation date:"
-            value={locationCreated || "unknow"}
-          />
+          <InfoItem title="Gender" value={gender} />
+          <InfoItem title="Created date" value={created} />
+          <InfoItem title="Status" value={status} />
+          <InfoItem title="Species" value={species} />
+          <InfoItem title="Name of location" value={locationName} />
+          <InfoItem title="Type of location" value={locationType} />
+          <InfoItem title="Location dimension" value={locationDimension} />
+          <InfoItem title="Location creation date" value={locationCreated} />
         </div>
       </div>
     </main>
