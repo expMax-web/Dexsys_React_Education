@@ -8,6 +8,13 @@ export const GET_CHARACTER_INFO_BY_ID = gql`
       gender
       created
       status
+      species
+      location {
+        name
+        type
+        dimension
+        created
+      }
     }
   }
 `;
