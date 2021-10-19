@@ -3,7 +3,7 @@ import cn from "classnames";
 
 import { Maybe } from "../../api/types";
 import { InfoItem } from "../InfoItem/InfoItem";
-import { useTheme } from "../../hooks/useTheme";
+import { useDarkTheme } from "../../hooks/useDarkTheme";
 
 import styles from "./CharacterInfoCard.module.scss";
 
@@ -32,7 +32,7 @@ export const CharacterInfoCard: React.FC<CharacterInfoCardProps> = ({
   locationDimension,
   locationCreated,
 }) => {
-  const { isDark } = useTheme();
+  const { isDark } = useDarkTheme();
   return (
     <main
       className={cn(styles.MainContainer, {

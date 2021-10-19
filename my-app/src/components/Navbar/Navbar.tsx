@@ -3,10 +3,10 @@ import cn from "classnames";
 
 import { ThemeSwitcher } from "../ThemeSwitcher/ThemeSwitcher";
 import styles from "./Navbar.module.scss";
-import { useTheme } from "../../hooks/useTheme";
+import { useDarkTheme } from "../../hooks/useDarkTheme";
 
 export const Navbar: React.FC = () => {
-  const { isDark } = useTheme();
+  const { isDark } = useDarkTheme();
   return (
     <header
       className={cn(styles.Navbar, {

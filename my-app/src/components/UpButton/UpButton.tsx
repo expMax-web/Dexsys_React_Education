@@ -1,7 +1,7 @@
 import React from "react";
 import cn from "classnames";
 
-import { useTheme } from "../../hooks/useTheme";
+import { useDarkTheme } from "../../hooks/useDarkTheme";
 
 import styles from "./UpButton.module.scss";
 
@@ -13,7 +13,7 @@ export const UpButton: React.FC<UpButtonProps> = ({
   children,
   scrollToTop,
 }) => {
-  const { isDark } = useTheme();
+  const { isDark } = useDarkTheme();
   return (
     <button
       onClick={scrollToTop}

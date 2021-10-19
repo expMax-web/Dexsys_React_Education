@@ -5,7 +5,7 @@ import cn from "classnames";
 import { CharacterCard } from "../CharacterCard/CharacterCard";
 import { UpButton } from "../UpButton/UpButton";
 import { Maybe, Character } from "../../api/types";
-import { useTheme } from "../../hooks/useTheme";
+import { useDarkTheme } from "../../hooks/useDarkTheme";
 
 import styles from "./CardsContainer.module.scss";
 
@@ -36,7 +36,7 @@ export const CardsContainer: React.FC<CardsContainerProps> = ({
     });
     setShowScroll(false);
   };
-  const { isDark } = useTheme();
+  const { isDark } = useDarkTheme();
   return (
     <main
       className={cn(styles.Container, {

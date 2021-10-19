@@ -1,12 +1,12 @@
 import React, { ChangeEvent, useState } from "react";
 import cn from "classnames";
 
-import { useTheme } from "../../hooks/useTheme";
+import { useDarkTheme } from "../../hooks/useDarkTheme";
 
 import styles from "./ThemeSwitcher.module.scss";
 
 export const ThemeSwitcher: React.FC = () => {
-  const { isDark, setIsDark } = useTheme();
+  const { isDark, setIsDark } = useDarkTheme();
   const [pointer, setPointer] = useState("enable dark theme");
 
   const toggleTheme = (event: ChangeEvent<HTMLInputElement>) => {
