@@ -1,9 +1,11 @@
 import React from "react";
+import cn from "classnames";
 
 import { Maybe } from "../../api/types";
 import { InfoItem } from "../InfoItem/InfoItem";
+import { useDarkTheme } from "../../hooks/useDarkTheme";
 
-import styles from "./CharacterInfoCard.module.css";
+import styles from "./CharacterInfoCard.module.scss";
 
 interface CharacterInfoCardProps {
   image: Maybe<string> | undefined;
@@ -30,14 +32,27 @@ export const CharacterInfoCard: React.FC<CharacterInfoCardProps> = ({
   locationDimension,
   locationCreated,
 }) => {
+  const { isDark } = useDarkTheme();
   return (
-    <main className={styles.MainContainer}>
-      <div className={styles.CharacterCardContainer}>
+    <main
+      className={cn(styles.MainContainer, {
+        [styles.MainContainer_Dark]: isDark,
+      })}
+    >
+      <div
+        className={cn(styles.CharacterCardContainer, {
+          [styles.CharacterCardContainer_Dark]: isDark,
+        })}
+      >
         <figure className={styles.CharacterImg}>
           <img src={image || ""} alt={name || ""} />
         </figure>
         <div className={styles.CharacterInfoContainer}>
-          <div className={styles.CharacterNameContainer}>
+          <div
+            className={cn(styles.CharacterNameContainer, {
+              [styles.CharacterNameContainer_Dark]: isDark,
+            })}
+          >
             <span>{name}</span>
           </div>
           <InfoItem title="Gender" value={gender} />

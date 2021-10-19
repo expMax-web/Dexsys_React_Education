@@ -7,4 +7,7 @@
   flex-wrap: wrap;
   justify-content: space-between;
   background-color: #f4f7fc;
+  &_Dark {
+    background-color: #636363;
+  }
 }

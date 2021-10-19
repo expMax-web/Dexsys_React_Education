@@ -1,9 +1,11 @@
 import React from "react";
 import { useState } from "react";
+import cn from "classnames";
 
 import { CharacterCard } from "../CharacterCard/CharacterCard";
 import { UpButton } from "../UpButton/UpButton";
 import { Maybe, Character } from "../../api/types";
+import { useDarkTheme } from "../../hooks/useDarkTheme";
 
 import styles from "./CardsContainer.module.scss";
 
@@ -34,9 +36,13 @@ export const CardsContainer: React.FC<CardsContainerProps> = ({
     });
     setShowScroll(false);
   };
-
+  const { isDark } = useDarkTheme();
   return (
-    <main className={styles.Container}>
+    <main
+      className={cn(styles.Container, {
+        [styles.Container_Dark]: isDark,
+      })}
+    >
       {characters &&
         characters
           ?.filter((character) => character)

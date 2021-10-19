@@ -3,6 +3,9 @@
   height: 100%;
   padding: 50px 0 120px 0;
   background-color: #f4f7fc;
+  &_Dark {
+    background-color: #636363;
+  }
 }
 
 .CharacterCardContainer {
@@ -14,6 +17,9 @@
   padding: 30px;
   border-radius: 20px;
   box-shadow: 0px 0px 2px rgb(131, 150, 185);
+  &_Dark {
+    background-color: #23262b;
+  }
 }
 
 .CharacterImg {
@@ -27,6 +33,9 @@
   padding: 20px 40px 20px 20px;
   font-size: 30px;
   font-weight: bold;
+  &_Dark {
+    color: white;
+  }
 }
 
 .CharacterInfoItem {
