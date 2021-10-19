@@ -4,12 +4,10 @@ import { Route, Switch, Redirect, withRouter } from "react-router-dom";
 import { Navbar } from "./components/Navbar/Navbar";
 import CharacterPage from "./pages/CharacterPage";
 import { Home } from "./pages/Home";
-import ThemeContext from "./context";
-// import { useDarkTheme } from "./hooks/useDarkTheme";
+import { ThemeContext } from "./context";
 
 const App: React.FC = () => {
   const [isDark, setIsDark] = useState(false);
-
   return (
     <ThemeContext.Provider value={{ isDark, setIsDark }}>
       <div className="App">

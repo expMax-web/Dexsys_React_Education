@@ -1,7 +1,9 @@
-import React, { useContext } from "react";
-import ThemeContext from "../../context";
+import React from "react";
+import cn from "classnames";
 
-import styles from "./UpButton.module.css";
+import { useTheme } from "../../hooks/useTheme";
+
+import styles from "./UpButton.module.scss";
 
 interface UpButtonProps {
   scrollToTop: () => void;
@@ -11,11 +13,13 @@ export const UpButton: React.FC<UpButtonProps> = ({
   children,
   scrollToTop,
 }) => {
-  const { isDark } = useContext(ThemeContext);
+  const { isDark } = useTheme();
   return (
     <button
       onClick={scrollToTop}
-      className={isDark ? styles.ButtonUp_dark : styles.ButtonUp}
+      className={cn(styles.ButtonUp, {
+        [styles.ButtonUp_Dark]: isDark,
+      })}
     >
       {children}
     </button>

@@ -1,10 +1,11 @@
-import React, { useContext } from "react";
+import React from "react";
+import cn from "classnames";
 
 import { Maybe } from "../../api/types";
-import ThemeContext from "../../context";
 import { InfoItem } from "../InfoItem/InfoItem";
+import { useTheme } from "../../hooks/useTheme";
 
-import styles from "./CharacterInfoCard.module.css";
+import styles from "./CharacterInfoCard.module.scss";
 
 interface CharacterInfoCardProps {
   image: Maybe<string> | undefined;
@@ -31,9 +32,13 @@ export const CharacterInfoCard: React.FC<CharacterInfoCardProps> = ({
   locationDimension,
   locationCreated,
 }) => {
-  const { isDark } = useContext(ThemeContext);
+  const { isDark } = useTheme();
   return (
-    <main className={isDark ? styles.MainContainer_dark : styles.MainContainer}>
+    <main
+      className={cn(styles.MainContainer, {
+        [styles.MainContainer_Dark]: isDark,
+      })}
+    >
       <div className={styles.CharacterCardContainer}>
         <figure className={styles.CharacterImg}>
           <img src={image || ""} alt={name || ""} />

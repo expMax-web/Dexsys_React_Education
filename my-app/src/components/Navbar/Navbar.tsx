@@ -1,14 +1,23 @@
-import React, { useContext } from "react";
-import ThemeContext from "../../context";
+import React from "react";
+import cn from "classnames";
 
 import { ThemeSwitcher } from "../ThemeSwitcher/ThemeSwitcher";
-import styles from "./Navbar.module.css";
+import styles from "./Navbar.module.scss";
+import { useTheme } from "../../hooks/useTheme";
 
 export const Navbar: React.FC = () => {
-  const { isDark, setIsDark } = useContext(ThemeContext);
+  const { isDark } = useTheme();
   return (
-    <header className={isDark ? styles.Navbar_dark : styles.Navbar}>
-      <h1 className={isDark ? styles.NavbarTitle_dark : styles.NavbarTitle}>
+    <header
+      className={cn(styles.Navbar, {
+        [styles.Navbar_Dark]: isDark,
+      })}
+    >
+      <h1
+        className={cn(styles.NavbarTitle, {
+          [styles.NavbarTitle_Dark]: isDark,
+        })}
+      >
         Rick and Morty
       </h1>
       <ThemeSwitcher />
