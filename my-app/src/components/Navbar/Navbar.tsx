@@ -2,8 +2,9 @@ import React from "react";
 import cn from "classnames";
 
 import { ThemeSwitcher } from "../ThemeSwitcher/ThemeSwitcher";
-import styles from "./Navbar.module.scss";
 import { useDarkTheme } from "../../hooks/useDarkTheme";
+
+import styles from "./Navbar.module.scss";
 
 export const Navbar: React.FC = () => {
   const { isDark } = useDarkTheme();

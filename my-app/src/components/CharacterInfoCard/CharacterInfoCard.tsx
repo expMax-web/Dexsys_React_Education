@@ -39,12 +39,20 @@ export const CharacterInfoCard: React.FC<CharacterInfoCardProps> = ({
         [styles.MainContainer_Dark]: isDark,
       })}
     >
-      <div className={styles.CharacterCardContainer}>
+      <div
+        className={cn(styles.CharacterCardContainer, {
+          [styles.CharacterCardContainer_Dark]: isDark,
+        })}
+      >
         <figure className={styles.CharacterImg}>
           <img src={image || ""} alt={name || ""} />
         </figure>
         <div className={styles.CharacterInfoContainer}>
-          <div className={styles.CharacterNameContainer}>
+          <div
+            className={cn(styles.CharacterNameContainer, {
+              [styles.CharacterNameContainer_Dark]: isDark,
+            })}
+          >
             <span>{name}</span>
           </div>
           <InfoItem title="Gender" value={gender} />

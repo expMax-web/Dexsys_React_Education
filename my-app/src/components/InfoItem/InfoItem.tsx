@@ -1,6 +1,9 @@
 import React from "react";
+import cn from "classnames";
 
-import styles from "./InfoItem.module.css";
+import { useDarkTheme } from "../../hooks/useDarkTheme";
+
+import styles from "./InfoItem.module.scss";
 
 interface InfoItemProps {
   title: string;
@@ -8,8 +11,13 @@ interface InfoItemProps {
 }
 
 export const InfoItem: React.FC<InfoItemProps> = ({ value, title }) => {
+  const { isDark } = useDarkTheme();
   return (
-    <div className={styles.CharacterInfoItem}>
+    <div
+      className={cn(styles.CharacterInfoItem, {
+        [styles.CharacterInfoItem_Dark]: isDark,
+      })}
+    >
       <span className={styles.CharacterInfoItemDescription}>{title}:</span>
       <span className={styles.CharacterInfoItemValue}>
         {value || "unknown"}

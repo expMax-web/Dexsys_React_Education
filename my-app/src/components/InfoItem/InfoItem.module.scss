@@ -3,13 +3,14 @@
   justify-content: space-between;
   padding: 20px 40px 20px 20px;
   font-size: 18px;
+  &_Dark {
+    color: white;
+  }
 }
 
 .CharacterInfoItemDescription {
   font-weight: 400;
-  color: black;
 }
 .CharacterInfoItemValue {
   font-weight: 600;
-  color: black;
 }
