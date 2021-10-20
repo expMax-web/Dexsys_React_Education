@@ -5,10 +5,10 @@ import { Navbar } from "./components/Navbar/Navbar";
 import CharacterPage from "./pages/CharacterPage";
 import { Home } from "./pages/Home";
 import { ThemeContext } from "./context";
-import { useLocalStorage } from "./hooks/useLocalStorage";
+import { useThemeState } from "./hooks/useThemeState";
 
 const App: React.FC = () => {
-  const [isDark, setIsDark] = useLocalStorage(false, "isDark");
+  const [isDark, setIsDark] = useThemeState();
   return (
     <ThemeContext.Provider value={{ isDark, setIsDark }}>
       <div className="App">
