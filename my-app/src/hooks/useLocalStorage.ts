@@ -1,6 +1,6 @@
-export const useLocalStorage = (initialValue: boolean, isDark: string) => {
+export const useLocalStorage = (initialValue: boolean) => {
   const getTheme = () => {
-    const localTheme = localStorage.getItem(isDark);
+    const localTheme = localStorage.getItem("isDark");
     if (localTheme) {
       return JSON.parse(localTheme);
     }
