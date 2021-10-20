@@ -9,6 +9,7 @@ import {
   GetCharactersQueryVariables,
   Maybe,
 } from "../api/types";
+import { Footer } from "../components/Footer/Footer";
 
 export const Home: React.FC = () => {
   const { loading, error, data } = useQuery<
@@ -21,5 +22,10 @@ export const Home: React.FC = () => {
 
   const characters = data?.characters?.results as Maybe<Character[]>;
 
-  return <CardsContainer characters={characters} />;
+  return (
+    <div>
+      <CardsContainer characters={characters} />
+      <Footer />
+    </div>
+  );
 };

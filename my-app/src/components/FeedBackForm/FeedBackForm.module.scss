@@ -1,0 +1,12 @@
+.FeedBackForm {
+  padding: 20px 40px 60px 40px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 600px;
+  margin: 0 auto;
+  background-color: #f4f7fc;
+  border-radius: 20px;
+  &_Dark {
+    background-color: #23262b;
+  }
+}
