@@ -22,6 +22,7 @@ export const ThemeSwitcher: React.FC = () => {
         className={styles.Checkbox}
         id="checkbox"
         onChange={toggleTheme}
+        checked={isDark}
       />
       <label
         htmlFor="checkbox"

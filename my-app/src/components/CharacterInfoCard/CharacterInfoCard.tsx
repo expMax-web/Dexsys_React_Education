@@ -4,6 +4,7 @@ import cn from "classnames";
 import { Maybe } from "../../api/types";
 import { InfoItem } from "../InfoItem/InfoItem";
 import { useDarkTheme } from "../../hooks/useDarkTheme";
+import { getFormatedDate } from "./getFormatedDate";
 
 import styles from "./CharacterInfoCard.module.scss";
 
@@ -56,13 +57,16 @@ export const CharacterInfoCard: React.FC<CharacterInfoCardProps> = ({
             <span>{name}</span>
           </div>
           <InfoItem title="Gender" value={gender} />
-          <InfoItem title="Created date" value={created} />
+          <InfoItem title="Created date" value={getFormatedDate(created)} />
           <InfoItem title="Status" value={status} />
           <InfoItem title="Species" value={species} />
           <InfoItem title="Name of location" value={locationName} />
           <InfoItem title="Type of location" value={locationType} />
           <InfoItem title="Location dimension" value={locationDimension} />
-          <InfoItem title="Location creation date" value={locationCreated} />
+          <InfoItem
+            title="Location creation date"
+            value={getFormatedDate(locationCreated)}
+          />
         </div>
       </div>
     </main>
