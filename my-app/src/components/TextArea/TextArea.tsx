@@ -21,7 +21,12 @@ export const TextArea: React.FC<TextAreaProps> = ({
   const { isDark } = useDarkTheme();
   return (
     <div className={styles.TextAreaContainer}>
-      <label className={styles.TextAreaLabel} htmlFor={name}>
+      <label
+        className={cn(styles.TextAreaLabel, {
+          [styles.TextAreaLabel_Dark]: isDark,
+        })}
+        htmlFor={name}
+      >
         {labeltext}
       </label>
       <textarea

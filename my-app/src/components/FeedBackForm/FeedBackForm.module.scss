@@ -1,12 +1,20 @@
 .FeedBackForm {
-  padding: 20px 40px 60px 40px;
+  padding: 20px 40px 20px 40px;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   width: 600px;
   margin: 0 auto;
   background-color: #f4f7fc;
   border-radius: 20px;
   &_Dark {
-    background-color: #23262b;
+    background-color: #636363;
+  }
+}
+
+.FeedBackFormTitle {
+  font-size: 22px;
+  &_Dark {
+    color: white;
   }
 }

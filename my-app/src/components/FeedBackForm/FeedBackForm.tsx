@@ -14,7 +14,18 @@ export const FeedBackForm = () => {
   const { isDark } = useDarkTheme();
   const startDate: Date = new Date(1900, 1, 1);
   return (
-    <form className={styles.FeedBackForm}>
+    <form
+      className={cn(styles.FeedBackForm, {
+        [styles.FeedBackForm_Dark]: isDark,
+      })}
+    >
+      <h1
+        className={cn(styles.FeedBackFormTitle, {
+          [styles.FeedBackFormTitle_Dark]: isDark,
+        })}
+      >
+        Добавить отзыв
+      </h1>
       <Input
         name="fio"
         placeholder="Иванов Иван Иванович"

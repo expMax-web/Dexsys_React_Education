@@ -23,7 +23,12 @@ export const Input: React.FC<InputProps> = ({
   const { isDark } = useDarkTheme();
   return (
     <div className={styles.InputItem}>
-      <label className={styles.LabelInput} htmlFor={name}>
+      <label
+        className={cn(styles.LabelInput, {
+          [styles.LabelInput_Dark]: isDark,
+        })}
+        htmlFor={name}
+      >
         {labeltext}:
       </label>
       <input

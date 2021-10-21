@@ -1,7 +1,6 @@
 .SubmitButton {
   text-align: center;
-  transform: translate(-50%, -50%);
-  width: 100px;
+  width: 200px;
   height: 45px;
   font-size: 18px;
   color: #fff;
@@ -12,7 +11,7 @@
   border-radius: 10px;
   overflow: hidden;
   opacity: 0.6;
-  align-items: center;
+  margin: 20px auto 0 auto;
   &_Dark {
     background-color: #3a3b3b;
   }
