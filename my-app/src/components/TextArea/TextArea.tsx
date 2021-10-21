@@ -8,14 +8,14 @@ import styles from "./TextArea.module.scss";
 interface TextAreaProps {
   name: string | undefined;
   placeholder: string | undefined;
-  labeltext: string | undefined;
-  error?: string | undefined;
+  labelText: string | undefined;
+  error?: string;
 }
 
 export const TextArea: React.FC<TextAreaProps> = ({
   name,
   placeholder,
-  labeltext,
+  labelText,
   error,
 }) => {
   const { isDark } = useDarkTheme();
@@ -27,7 +27,7 @@ export const TextArea: React.FC<TextAreaProps> = ({
         })}
         htmlFor={name}
       >
-        {labeltext}
+        {labelText}
       </label>
       <textarea
         className={styles.TextArea}

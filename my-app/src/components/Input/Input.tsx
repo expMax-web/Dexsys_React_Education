@@ -8,15 +8,15 @@ import styles from "./Input.module.scss";
 interface InputProps {
   name: string | undefined;
   placeholder: string | undefined;
-  labeltext: string | undefined;
-  error?: string | undefined;
-  type?: string | undefined;
+  labelText: string | undefined;
+  error?: string;
+  type?: string;
 }
 
 export const Input: React.FC<InputProps> = ({
   name,
   placeholder,
-  labeltext,
+  labelText,
   error,
   type,
 }) => {
@@ -29,7 +29,7 @@ export const Input: React.FC<InputProps> = ({
         })}
         htmlFor={name}
       >
-        {labeltext}:
+        {labelText}:
       </label>
       <input
         className={styles.Input}

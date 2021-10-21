@@ -5,10 +5,10 @@ import { DatePickerComponent } from "@syncfusion/ej2-react-calendars";
 import { useDarkTheme } from "../../hooks/useDarkTheme";
 import { Input } from "../Input/Input";
 import { TextArea } from "../TextArea/TextArea";
+import { SubmitButton } from "../SubmitButton/SubmitButton";
 
 import styles from "./FeedBackForm.module.scss";
 import "react-datepicker/dist/react-datepicker.css";
-import { SubmitButton } from "../SubmitButton/SubmitButton";
 
 export const FeedBackForm = () => {
   const { isDark } = useDarkTheme();
@@ -29,19 +29,19 @@ export const FeedBackForm = () => {
       <Input
         name="fio"
         placeholder="Иванов Иван Иванович"
-        labeltext="ФИО"
+        labelText="ФИО"
         type="text"
       />
       <Input
         name="email"
         placeholder="example@gmail.com"
-        labeltext="Email"
+        labelText="Email"
         type="email"
       />
       <TextArea
         name="comment"
         placeholder="Напишите что-нибудь..."
-        labeltext="Введите комментарий"
+        labelText="Введите комментарий"
       />
       <DatePickerComponent
         min={startDate}

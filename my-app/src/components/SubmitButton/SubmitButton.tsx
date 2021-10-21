@@ -9,7 +9,6 @@ export const SubmitButton: React.FC = ({ children }) => {
   const { isDark } = useDarkTheme();
   return (
     <div>
-      {" "}
       <button
         type="submit"
         className={cn(styles.SubmitButton, {
