@@ -30,7 +30,9 @@ export const TextArea: React.FC<TextAreaProps> = ({
         {labelText}
       </label>
       <textarea
-        className={styles.TextArea}
+        className={cn(styles.TextArea, {
+          [styles.TextArea_Dark]: isDark,
+        })}
         name={name}
         placeholder={placeholder}
       />

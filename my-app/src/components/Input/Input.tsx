@@ -27,16 +27,17 @@ export const Input: React.FC<InputProps> = ({
         className={cn(styles.LabelInput, {
           [styles.LabelInput_Dark]: isDark,
         })}
-        htmlFor={name}
       >
         {labelText}:
       </label>
       <input
-        className={styles.Input}
-        name={name}
-        placeholder={placeholder}
+        className={cn(styles.Input, {
+          [styles.Input_Dark]: isDark,
+        })}
         type={type}
-      />
+        name={name}
+        required
+      ></input>
     </div>
   );
 };
