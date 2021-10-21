@@ -1,0 +1,24 @@
+.InputItem {
+  padding: 10px 0;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.LabelInput {
+  font-weight: 500;
+  width: 100%;
+  padding-bottom: 10px;
+  &_Dark {
+    color: white;
+  }
+}
+
+.Input {
+  width: 100%;
+  height: 30px;
+  padding: 0 10px;
+  &_Dark {
+    background-color: #23262b;
+  }
+}

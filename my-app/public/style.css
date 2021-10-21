@@ -1,3 +1,5 @@
+@import url("https://cdn.syncfusion.com/ej2/material.css");
+
 * {
   margin: 0;
   padding: 0;
@@ -14,4 +16,8 @@ body {
 
 #root {
   height: 100%;
+}
+
+.e-date-wrapper {
+  padding-top: 20px;
 }
