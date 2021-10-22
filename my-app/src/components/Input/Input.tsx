@@ -1,23 +1,19 @@
 import React, { InputHTMLAttributes } from "react";
 import cn from "classnames";
+import { FieldValues, UseFormRegister } from "react-hook-form";
 
 import { useDarkTheme } from "../../hooks/useDarkTheme";
 
 import styles from "./Input.module.scss";
-import { FieldValues, Path, UseFormRegister } from "react-hook-form";
-
-type IFormInput = {
-  fio: string;
-  email: string;
-};
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   placeholder: string | undefined;
   labelText: string | undefined;
   error?: any;
   id: string;
+  name: string;
   register: UseFormRegister<FieldValues>;
-  name: Path<IFormInput>;
+  validate: (value: string) => boolean | string;
 }
 
 export const Input: React.FC<InputProps> = ({
@@ -25,9 +21,12 @@ export const Input: React.FC<InputProps> = ({
   error,
   id,
   labelText,
+  validate,
+  name,
   ...inputProps
 }) => {
   const { isDark } = useDarkTheme();
+  console.log(name);
 
   return (
     <div className={styles.InputItem}>
@@ -44,12 +43,17 @@ export const Input: React.FC<InputProps> = ({
           [styles.Input_Dark]: isDark,
         })}
         id={id}
-        {...register(inputProps.name, {
-          required: "Required",
+        {...register(name, {
+          required: true,
+          validate: { validate },
         })}
         {...inputProps}
       ></input>
-      {error && <div>{error}</div>}
+      {/* {console.log(error)} */}
+      {error && error.type === "required" && (
+        <span>Поле обязательно для ввода</span>
+      )}
+      {error && error.type === "validateEmail" && <span>{error.message}</span>}
     </div>
   );
 };

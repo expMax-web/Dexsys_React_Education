@@ -1,29 +1,27 @@
-import React from "react";
+import React, { InputHTMLAttributes } from "react";
 import cn from "classnames";
+import { FieldValues, UseFormRegister } from "react-hook-form";
 
 import { useDarkTheme } from "../../hooks/useDarkTheme";
 
 import styles from "./TextArea.module.scss";
-import { FieldValues, Path, UseFormRegister } from "react-hook-form";
 
-type IFormInput = {
-  comment: string;
-};
-
-interface TextAreaProps {
+interface TextAreaProps extends InputHTMLAttributes<HTMLTextAreaElement> {
   placeholder: string | undefined;
   labelText: string | undefined;
   error?: any;
   id: string;
+  name: string;
   register: UseFormRegister<FieldValues>;
-  name: Path<IFormInput>;
 }
 
 export const TextArea: React.FC<TextAreaProps> = ({
-  register,
   error,
   id,
   labelText,
+  onChange,
+  register,
+  name,
   ...inputProps
 }) => {
   const { isDark } = useDarkTheme();
@@ -42,9 +40,10 @@ export const TextArea: React.FC<TextAreaProps> = ({
           [styles.TextArea_Dark]: isDark,
         })}
         id={id}
-        {...register(inputProps.name, {
-          required: "Required",
+        {...register(name, {
+          required: true,
         })}
+        onChange={onChange}
         {...inputProps}
       />
     </div>

@@ -1,14 +1,22 @@
 import React from "react";
 import cn from "classnames";
 import { DatePickerComponent } from "@syncfusion/ej2-react-calendars";
-import { useForm, Controller, SubmitHandler } from "react-hook-form";
+import { useForm } from "react-hook-form";
 
 import { useDarkTheme } from "../../hooks/useDarkTheme";
 import { Input } from "../Input/Input";
 import { TextArea } from "../TextArea/TextArea";
 import { SubmitButton } from "../SubmitButton/SubmitButton";
+import { validateEmail, validateFio } from "./Validaton";
 
 import styles from "./FeedBackForm.module.scss";
+
+type Form = {
+  fio: string;
+  email: string;
+  comment: string;
+  date: string;
+};
 
 export const FeedBackForm = () => {
   const { isDark } = useDarkTheme();
@@ -18,7 +26,14 @@ export const FeedBackForm = () => {
     handleSubmit,
     setValue,
     formState: { errors },
-  } = useForm();
+  } = useForm<Form>({
+    defaultValues: {
+      fio: "",
+      email: "",
+      comment: "",
+      date: "",
+    },
+  });
 
   const onSubmit = (data: any) => {
     console.log(data);
@@ -45,7 +60,8 @@ export const FeedBackForm = () => {
         name="fio"
         labelText="ФИО"
         register={register}
-        error={errors.fio}
+        error={errors.fio?.message}
+        validate={validateFio}
       />
       <Input
         placeholder="example@gmail.com"
@@ -54,23 +70,22 @@ export const FeedBackForm = () => {
         name="email"
         labelText="Email"
         register={register}
-        error={errors.email}
+        error={errors.email?.message}
+        validate={validateEmail}
       />
       <TextArea
         placeholder="Напишите что-нибудь..."
         labelText="Введите комментарий"
         id="comment"
         name="comment"
+        error={errors.email}
         register={register}
-        error={errors.comment}
       />
       <DatePickerComponent
         min={startDate}
         start="Decade"
         format="dd.MM.yy"
-        {...register(`date`, {
-          required: "Required",
-        })}
+        {...register("date")}
       ></DatePickerComponent>
       <SubmitButton>Submit</SubmitButton>
     </form>
