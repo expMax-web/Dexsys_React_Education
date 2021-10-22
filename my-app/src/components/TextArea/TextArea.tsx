@@ -1,8 +1,9 @@
 import React, { InputHTMLAttributes } from "react";
 import cn from "classnames";
-import { FieldValues, UseFormRegister } from "react-hook-form";
+import { FieldValues, Path, UseFormRegister } from "react-hook-form";
 
 import { useDarkTheme } from "../../hooks/useDarkTheme";
+import { Form } from "../FeedBackForm/FeedBackForm";
 
 import styles from "./TextArea.module.scss";
 
@@ -11,7 +12,7 @@ interface TextAreaProps extends InputHTMLAttributes<HTMLTextAreaElement> {
   labelText: string | undefined;
   error?: any;
   id: string;
-  name: string;
+  name: Path<Form>;
   register: UseFormRegister<FieldValues>;
 }
 
@@ -46,6 +47,7 @@ export const TextArea: React.FC<TextAreaProps> = ({
         onChange={onChange}
         {...inputProps}
       />
+      {error && <span className={styles.Error}>Оставьте комментарий</span>}
     </div>
   );
 };

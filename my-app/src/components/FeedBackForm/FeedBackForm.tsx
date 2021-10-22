@@ -8,10 +8,11 @@ import { Input } from "../Input/Input";
 import { TextArea } from "../TextArea/TextArea";
 import { SubmitButton } from "../SubmitButton/SubmitButton";
 import { validateEmail, validateFio } from "./Validaton";
+import { ERROR_MESSAGES } from "./Constants";
 
 import styles from "./FeedBackForm.module.scss";
 
-type Form = {
+export type Form = {
   fio: string;
   email: string;
   comment: string;
@@ -24,16 +25,8 @@ export const FeedBackForm = () => {
   const {
     register,
     handleSubmit,
-    setValue,
     formState: { errors },
-  } = useForm<Form>({
-    defaultValues: {
-      fio: "",
-      email: "",
-      comment: "",
-      date: "",
-    },
-  });
+  } = useForm();
 
   const onSubmit = (data: any) => {
     console.log(data);
@@ -60,7 +53,7 @@ export const FeedBackForm = () => {
         name="fio"
         labelText="ФИО"
         register={register}
-        error={errors.fio?.message}
+        error={errors.fio}
         validate={validateFio}
       />
       <Input
@@ -70,7 +63,7 @@ export const FeedBackForm = () => {
         name="email"
         labelText="Email"
         register={register}
-        error={errors.email?.message}
+        error={errors.email}
         validate={validateEmail}
       />
       <TextArea
@@ -78,15 +71,20 @@ export const FeedBackForm = () => {
         labelText="Введите комментарий"
         id="comment"
         name="comment"
-        error={errors.email}
+        error={errors.comment}
         register={register}
       />
       <DatePickerComponent
         min={startDate}
         start="Decade"
         format="dd.MM.yy"
-        {...register("date")}
+        {...register("date", {
+          required: true,
+        })}
       ></DatePickerComponent>
+      {errors.date && (
+        <span className={styles.Error}>{ERROR_MESSAGES.EmptyField}</span>
+      )}
       <SubmitButton>Submit</SubmitButton>
     </form>
   );

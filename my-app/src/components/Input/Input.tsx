@@ -1,8 +1,9 @@
 import React, { InputHTMLAttributes } from "react";
 import cn from "classnames";
-import { FieldValues, UseFormRegister } from "react-hook-form";
+import { FieldValues, Path, UseFormRegister } from "react-hook-form";
 
 import { useDarkTheme } from "../../hooks/useDarkTheme";
+import { Form } from "../FeedBackForm/FeedBackForm";
 
 import styles from "./Input.module.scss";
 
@@ -11,7 +12,7 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   labelText: string | undefined;
   error?: any;
   id: string;
-  name: string;
+  name: Path<Form>;
   register: UseFormRegister<FieldValues>;
   validate: (value: string) => boolean | string;
 }
@@ -26,7 +27,6 @@ export const Input: React.FC<InputProps> = ({
   ...inputProps
 }) => {
   const { isDark } = useDarkTheme();
-  console.log(name);
 
   return (
     <div className={styles.InputItem}>
@@ -44,16 +44,11 @@ export const Input: React.FC<InputProps> = ({
         })}
         id={id}
         {...register(name, {
-          required: true,
           validate: { validate },
         })}
         {...inputProps}
       ></input>
-      {/* {console.log(error)} */}
-      {error && error.type === "required" && (
-        <span>Поле обязательно для ввода</span>
-      )}
-      {error && error.type === "validateEmail" && <span>{error.message}</span>}
+      {error && <span className={styles.Error}>{error.message}</span>}
     </div>
   );
 };
