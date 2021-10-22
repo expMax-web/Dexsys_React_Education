@@ -4,19 +4,27 @@ import cn from "classnames";
 import { useDarkTheme } from "../../hooks/useDarkTheme";
 
 import styles from "./TextArea.module.scss";
+import { FieldValues, Path, UseFormRegister } from "react-hook-form";
+
+type IFormInput = {
+  comment: string;
+};
 
 interface TextAreaProps {
-  name: string | undefined;
   placeholder: string | undefined;
   labelText: string | undefined;
-  error?: string;
+  error?: any;
+  id: string;
+  register: UseFormRegister<FieldValues>;
+  name: Path<IFormInput>;
 }
 
 export const TextArea: React.FC<TextAreaProps> = ({
-  name,
-  placeholder,
-  labelText,
+  register,
   error,
+  id,
+  labelText,
+  ...inputProps
 }) => {
   const { isDark } = useDarkTheme();
   return (
@@ -25,7 +33,7 @@ export const TextArea: React.FC<TextAreaProps> = ({
         className={cn(styles.TextAreaLabel, {
           [styles.TextAreaLabel_Dark]: isDark,
         })}
-        htmlFor={name}
+        htmlFor={id}
       >
         {labelText}
       </label>
@@ -33,8 +41,11 @@ export const TextArea: React.FC<TextAreaProps> = ({
         className={cn(styles.TextArea, {
           [styles.TextArea_Dark]: isDark,
         })}
-        name={name}
-        placeholder={placeholder}
+        id={id}
+        {...register(inputProps.name, {
+          required: "Required",
+        })}
+        {...inputProps}
       />
     </div>
   );

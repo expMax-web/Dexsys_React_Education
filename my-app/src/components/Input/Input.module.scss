@@ -12,8 +12,21 @@
   border: none;
   border-bottom: 1px solid rgb(145, 145, 145);
   background-color: inherit;
+  &:-webkit-autofill {
+    box-shadow: 0 0 0px 1000px #f4f7fc inset;
+  }
+
   &_Dark {
     color: white;
+    background-color: inherit;
+    &:-webkit-autofill {
+      box-shadow: 0 0 0px 1000px #636363 inset;
+      -webkit-text-fill-color: white;
+    }
+    &::placeholder {
+      color: white;
+      font-size: 12px;
+    }
   }
   &:focus {
     outline: none;
