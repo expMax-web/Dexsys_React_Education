@@ -10,6 +10,7 @@ import {
   Maybe,
 } from "../api/types";
 import { Footer } from "../components/Footer/Footer";
+import { SkeletonHomePage } from "./SkeletonHomePage/SkeletonHomePage";
 
 export const Home: React.FC = () => {
   const { loading, error, data } = useQuery<
@@ -17,7 +18,7 @@ export const Home: React.FC = () => {
     GetCharactersQueryVariables
   >(GET_CHARACTERS_INFO);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <SkeletonHomePage />;
   if (error) return <p>Error {error.message}</p>;
 
   const characters = data?.characters?.results as Maybe<Character[]>;
