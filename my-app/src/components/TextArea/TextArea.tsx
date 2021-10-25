@@ -1,22 +1,22 @@
-import React from "react";
+import React, { InputHTMLAttributes } from "react";
 import cn from "classnames";
 
 import { useDarkTheme } from "../../hooks/useDarkTheme";
 
 import styles from "./TextArea.module.scss";
 
-interface TextAreaProps {
-  name: string | undefined;
+interface TextAreaProps extends InputHTMLAttributes<HTMLTextAreaElement> {
   placeholder: string | undefined;
   labelText: string | undefined;
-  error?: string;
+  error?: any;
 }
 
 export const TextArea: React.FC<TextAreaProps> = ({
-  name,
-  placeholder,
-  labelText,
   error,
+  id,
+  labelText,
+  name,
+  ...inputProps
 }) => {
   const { isDark } = useDarkTheme();
   return (
@@ -25,15 +25,17 @@ export const TextArea: React.FC<TextAreaProps> = ({
         className={cn(styles.TextAreaLabel, {
           [styles.TextAreaLabel_Dark]: isDark,
         })}
-        htmlFor={name}
+        htmlFor={id}
       >
         {labelText}
       </label>
       <textarea
-        className={styles.TextArea}
-        name={name}
-        placeholder={placeholder}
+        className={cn(styles.TextArea, {
+          [styles.TextArea_Dark]: isDark,
+        })}
+        {...inputProps}
       />
+      {error && <span className={styles.Error}>{error}</span>}
     </div>
   );
 };

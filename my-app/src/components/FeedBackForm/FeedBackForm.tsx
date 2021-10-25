@@ -1,20 +1,48 @@
 import React from "react";
 import cn from "classnames";
 import { DatePickerComponent } from "@syncfusion/ej2-react-calendars";
+import { useForm, Controller } from "react-hook-form";
 
 import { useDarkTheme } from "../../hooks/useDarkTheme";
 import { Input } from "../Input/Input";
 import { TextArea } from "../TextArea/TextArea";
 import { SubmitButton } from "../SubmitButton/SubmitButton";
+import { validateEmail, validateFio } from "./Validaton";
+import { ERROR_MESSAGES } from "./Constants";
 
 import styles from "./FeedBackForm.module.scss";
-import "react-datepicker/dist/react-datepicker.css";
+
+export type Form = {
+  fio: string;
+  email: string;
+  comment: string;
+  date: string;
+};
 
 export const FeedBackForm = () => {
   const { isDark } = useDarkTheme();
   const startDate: Date = new Date(1900, 1, 1);
+  const {
+    handleSubmit,
+    formState: { errors },
+    control,
+  } = useForm<Form>({
+    defaultValues: {
+      fio: "",
+      email: "",
+      comment: "",
+      date: "",
+    },
+    mode: "onChange",
+  });
+
+  const onSubmit = (data: Form) => {
+    console.log(data);
+  };
+
   return (
     <form
+      onSubmit={handleSubmit(onSubmit)}
       className={cn(styles.FeedBackForm, {
         [styles.FeedBackForm_Dark]: isDark,
       })}
@@ -26,28 +54,72 @@ export const FeedBackForm = () => {
       >
         Добавить отзыв
       </h1>
-      <Input
+      <Controller
+        control={control}
         name="fio"
-        placeholder="Иванов Иван Иванович"
-        labelText="ФИО"
-        type="text"
+        rules={{
+          required: ERROR_MESSAGES.EmptyField,
+          validate: validateFio,
+        }}
+        render={({ field }) => (
+          <Input
+            onChange={field.onChange}
+            placeholder="Иванов Иван Иванович"
+            labelText="ФИО"
+            error={errors?.fio?.message}
+          />
+        )}
       />
-      <Input
+      <Controller
+        control={control}
         name="email"
-        placeholder="example@gmail.com"
-        labelText="Email"
-        type="email"
+        rules={{
+          required: ERROR_MESSAGES.EmptyField,
+          validate: validateEmail,
+        }}
+        render={({ field }) => (
+          <Input
+            onChange={field.onChange}
+            placeholder="example@gmail.com"
+            labelText="Email"
+            error={errors?.email?.message}
+          />
+        )}
       />
-      <TextArea
+      <Controller
+        control={control}
         name="comment"
-        placeholder="Напишите что-нибудь..."
-        labelText="Введите комментарий"
+        rules={{
+          required: ERROR_MESSAGES.EmptyField,
+        }}
+        render={({ field }) => (
+          <TextArea
+            onChange={field.onChange}
+            placeholder="Напишите что-нибудь..."
+            labelText="Введите комментарий"
+            error={errors?.comment?.message}
+          />
+        )}
       />
-      <DatePickerComponent
-        min={startDate}
-        start="Decade"
-        format="dd.MM.yy"
-      ></DatePickerComponent>
+      <Controller
+        control={control}
+        name="date"
+        rules={{
+          required: ERROR_MESSAGES.EmptyField,
+        }}
+        render={({ field }) => (
+          <DatePickerComponent
+            onChange={field.onChange}
+            min={startDate}
+            start="Decade"
+            format="dd.MM.yy"
+            placeholder="Выберите дату рождения"
+          />
+        )}
+      />
+      {errors?.date?.message && (
+        <span className={styles.Error}>{errors.date.message}</span>
+      )}
       <SubmitButton>Submit</SubmitButton>
     </form>
   );

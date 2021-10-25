@@ -14,7 +14,13 @@
 
 .FeedBackFormTitle {
   font-size: 22px;
+  margin-bottom: 20px;
   &_Dark {
     color: white;
   }
+}
+
+.Error {
+  width: 100%;
+  color: rgb(253, 69, 69);
 }
