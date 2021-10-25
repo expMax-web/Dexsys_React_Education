@@ -1,0 +1,24 @@
+.Container {
+  width: 100%;
+  height: 100%;
+  padding: 50px 0px 120px 0px;
+  &_Dark {
+    background-color: #636363;
+  }
+}
+
+.SkeletonCharacterInfoCard {
+  height: 620px;
+  width: 850px;
+  margin: 80px auto 0 auto;
+  display: block;
+}
+
+.SkeletonBackButton {
+  height: 45px;
+  width: 100px;
+  position: fixed;
+  left: 100px;
+  top: 150px;
+  transform: translate(-50%, -50%);
+}

@@ -3,11 +3,12 @@ import React from "react";
 import { BackButton } from "../components/BackButton/BackButton";
 import { CharacterInfoCard } from "../components/CharacterInfoCard/CharacterInfoCard";
 import { useCharacterInfo } from "./hooks/useCharacterInfo";
+import { SkeletonCharacterPage } from "./SkeletonCharacterPage/SkeletonCharacterPage";
 
 const CharacterPage: React.FC = () => {
   const { loading, error, character, id } = useCharacterInfo();
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <SkeletonCharacterPage />;
   if (error) return <p>Error {error.message}</p>;
   if (!id) return <h1>id not received, unable to download data</h1>;
 
