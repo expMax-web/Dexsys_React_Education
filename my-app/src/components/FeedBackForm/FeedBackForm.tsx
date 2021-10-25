@@ -1,7 +1,7 @@
 import React from "react";
 import cn from "classnames";
 import { DatePickerComponent } from "@syncfusion/ej2-react-calendars";
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 
 import { useDarkTheme } from "../../hooks/useDarkTheme";
 import { Input } from "../Input/Input";
@@ -23,12 +23,20 @@ export const FeedBackForm = () => {
   const { isDark } = useDarkTheme();
   const startDate: Date = new Date(1900, 1, 1);
   const {
-    register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+    control,
+  } = useForm<Form>({
+    defaultValues: {
+      fio: "",
+      email: "",
+      comment: "",
+      date: "",
+    },
+    mode: "onChange",
+  });
 
-  const onSubmit = (data: any) => {
+  const onSubmit = (data: Form) => {
     console.log(data);
   };
 
@@ -46,44 +54,71 @@ export const FeedBackForm = () => {
       >
         Добавить отзыв
       </h1>
-      <Input
-        placeholder="Иванов Иван Иванович"
-        id="fio"
-        type="text"
+      <Controller
+        control={control}
         name="fio"
-        labelText="ФИО"
-        register={register}
-        error={errors.fio}
-        validate={validateFio}
+        rules={{
+          required: ERROR_MESSAGES.EmptyField,
+          validate: validateFio,
+        }}
+        render={({ field }) => (
+          <Input
+            onChange={field.onChange}
+            placeholder="Иванов Иван Иванович"
+            labelText="ФИО"
+            error={errors?.fio?.message}
+          />
+        )}
       />
-      <Input
-        placeholder="example@gmail.com"
-        id="email"
-        type="text"
+      <Controller
+        control={control}
         name="email"
-        labelText="Email"
-        register={register}
-        error={errors.email}
-        validate={validateEmail}
+        rules={{
+          required: ERROR_MESSAGES.EmptyField,
+          validate: validateEmail,
+        }}
+        render={({ field }) => (
+          <Input
+            onChange={field.onChange}
+            placeholder="example@gmail.com"
+            labelText="Email"
+            error={errors?.email?.message}
+          />
+        )}
       />
-      <TextArea
-        placeholder="Напишите что-нибудь..."
-        labelText="Введите комментарий"
-        id="comment"
+      <Controller
+        control={control}
         name="comment"
-        error={errors.comment}
-        register={register}
+        rules={{
+          required: ERROR_MESSAGES.EmptyField,
+        }}
+        render={({ field }) => (
+          <TextArea
+            onChange={field.onChange}
+            placeholder="Напишите что-нибудь..."
+            labelText="Введите комментарий"
+            error={errors?.comment?.message}
+          />
+        )}
       />
-      <DatePickerComponent
-        min={startDate}
-        start="Decade"
-        format="dd.MM.yy"
-        {...register("date", {
-          required: true,
-        })}
-      ></DatePickerComponent>
-      {errors.date && (
-        <span className={styles.Error}>{ERROR_MESSAGES.EmptyField}</span>
+      <Controller
+        control={control}
+        name="date"
+        rules={{
+          required: ERROR_MESSAGES.EmptyField,
+        }}
+        render={({ field }) => (
+          <DatePickerComponent
+            onChange={field.onChange}
+            min={startDate}
+            start="Decade"
+            format="dd.MM.yy"
+            placeholder="Выберите дату рождения"
+          />
+        )}
+      />
+      {errors?.date?.message && (
+        <span className={styles.Error}>{errors.date.message}</span>
       )}
       <SubmitButton>Submit</SubmitButton>
     </form>

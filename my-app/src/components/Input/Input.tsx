@@ -1,28 +1,20 @@
 import React, { InputHTMLAttributes } from "react";
 import cn from "classnames";
-import { FieldValues, Path, UseFormRegister } from "react-hook-form";
 
 import { useDarkTheme } from "../../hooks/useDarkTheme";
-import { Form } from "../FeedBackForm/FeedBackForm";
 
 import styles from "./Input.module.scss";
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   placeholder: string | undefined;
   labelText: string | undefined;
-  error?: any;
-  id: string;
-  name: Path<Form>;
-  register: UseFormRegister<FieldValues>;
-  validate: (value: string) => boolean | string;
+  error?: string;
 }
 
 export const Input: React.FC<InputProps> = ({
-  register,
   error,
   id,
   labelText,
-  validate,
   name,
   ...inputProps
 }) => {
@@ -42,13 +34,9 @@ export const Input: React.FC<InputProps> = ({
         className={cn(styles.Input, {
           [styles.Input_Dark]: isDark,
         })}
-        id={id}
-        {...register(name, {
-          validate: { validate },
-        })}
         {...inputProps}
       ></input>
-      {error && <span className={styles.Error}>{error.message}</span>}
+      {error && <span className={styles.Error}>{error}</span>}
     </div>
   );
 };
