@@ -7,7 +7,7 @@ import { useDarkTheme } from "../../hooks/useDarkTheme";
 import { Input } from "../Input/Input";
 import { TextArea } from "../TextArea/TextArea";
 import { SubmitButton } from "../SubmitButton/SubmitButton";
-import { validateEmail, validateFio } from "./Validaton";
+import { validateEmail, validateFio } from "./validation/Validaton";
 import { ERROR_MESSAGES } from "./Constants";
 
 import styles from "./FeedBackForm.module.scss";
