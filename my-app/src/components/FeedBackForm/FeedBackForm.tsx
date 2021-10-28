@@ -19,7 +19,7 @@ export type Form = {
   date: string;
 };
 
-export const FeedBackForm = () => {
+export const FeedBackForm: React.FC = () => {
   const { isDark } = useDarkTheme();
   const startDate: Date = new Date(1900, 1, 1);
   const {

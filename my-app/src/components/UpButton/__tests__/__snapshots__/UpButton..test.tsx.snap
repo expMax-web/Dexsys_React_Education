@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SubmitButton test suite should be render correctly  1`] = `
+<div>
+  <button
+    class="ButtonUp"
+  />
+</div>
+`;
+
+exports[`UpButton test suite scrollToTop work correctly  1`] = `
+<div>
+  <button
+    class="ButtonUp"
+  />
+</div>
+`;
+
+exports[`UpButton test suite should be render correctly  1`] = `
+<div>
+  <button
+    class="ButtonUp"
+  />
+</div>
+`;
+
+exports[`UpButton test suite should be render correctly  2`] = `
+<div>
+  <button
+    class="ButtonUp"
+  />
+</div>
+`;

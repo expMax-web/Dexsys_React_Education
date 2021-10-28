@@ -21,6 +21,10 @@ describe("CharacterCard test suite", () => {
         />
       </BrowserRouter>
     );
+    const displayedImage = document.querySelector("img") as HTMLImageElement;
     expect(container).toHaveTextContent("Sanchez");
+    expect(displayedImage.src).toContain(
+      "https://rickandmortyapi.com/api/character/avatar/1.jpeg"
+    );
   });
 });

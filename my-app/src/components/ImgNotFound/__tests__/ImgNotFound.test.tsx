@@ -1,15 +1,11 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 
-import image from "../img_not_found.png";
+import { ImgNotFound } from "../ImgNotFound";
 
-describe("CharacterCard test suite", () => {
+describe("ImgNotFound test suite", () => {
   test("should be render correctly", () => {
-    render(
-      <p>
-        <img src={image} alt="Изображение не найдено" />
-      </p>
-    );
-    expect(screen.getByRole(`img`));
+    render(<ImgNotFound />);
+    expect(screen.getByRole(`img`, { name: "Изображение не найдено" }));
   });
 });

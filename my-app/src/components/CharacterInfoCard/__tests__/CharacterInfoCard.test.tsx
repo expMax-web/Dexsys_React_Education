@@ -3,7 +3,7 @@ import { render, screen } from "@testing-library/react";
 
 import { CharacterInfoCard } from "../CharacterInfoCard";
 
-describe("CharacterCard test suite", () => {
+describe("CharacterInfoCard test suite", () => {
   test("should be render correctly", () => {
     const character = {
       created: "2017-11-04T18:50:21.651Z",

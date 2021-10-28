@@ -11,7 +11,6 @@ const CharacterPage: React.FC = () => {
   if (loading) return <SkeletonCharacterPage />;
   if (error) return <p>Error {error.message}</p>;
   if (!id) return <h1>id not received, unable to download data</h1>;
-  console.log(character);
 
   return (
     <div>

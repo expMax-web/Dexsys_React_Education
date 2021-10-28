@@ -15,7 +15,6 @@ export const Input: React.FC<InputProps> = ({
   error,
   id,
   labelText,
-  name,
   ...inputProps
 }) => {
   const { isDark } = useDarkTheme();
