@@ -3,8 +3,10 @@ export const getFormatedDate = (
 ): string | undefined => {
   if (date) {
     const formattedDate = new Date(date);
-
-    return `${formattedDate.getDate()}.${formattedDate.getMonth()}.${formattedDate.getFullYear()}`;
+    if (formattedDate.getDate()) {
+      return `${formattedDate.getDate()}.${formattedDate.getMonth()}.${formattedDate.getFullYear()}`;
+    }
+    return;
   }
   return;
 };

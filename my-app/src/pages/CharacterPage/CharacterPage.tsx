@@ -1,9 +1,9 @@
 import React from "react";
 
-import { BackButton } from "../components/BackButton/BackButton";
-import { CharacterInfoCard } from "../components/CharacterInfoCard/CharacterInfoCard";
-import { useCharacterInfo } from "./hooks/useCharacterInfo";
-import { SkeletonCharacterPage } from "./SkeletonCharacterPage/SkeletonCharacterPage";
+import { BackButton } from "../../components/BackButton/BackButton";
+import { CharacterInfoCard } from "../../components/CharacterInfoCard/CharacterInfoCard";
+import { useCharacterInfo } from "../hooks/useCharacterInfo";
+import { SkeletonCharacterPage } from "../SkeletonCharacterPage/SkeletonCharacterPage";
 
 const CharacterPage: React.FC = () => {
   const { loading, error, character, id } = useCharacterInfo();

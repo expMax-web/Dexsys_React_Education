@@ -1,4 +1,4 @@
-import { REGEXP, ERROR_MESSAGES } from "../FeedBackForm/Constants";
+import { REGEXP, ERROR_MESSAGES } from "../Constants";
 
 export const validateEmail = (value: string): boolean | string => {
   if (value === "" || !value) {

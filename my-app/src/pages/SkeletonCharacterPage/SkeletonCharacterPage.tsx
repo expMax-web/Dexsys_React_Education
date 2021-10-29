@@ -4,8 +4,8 @@ import cn from "classnames";
 
 import { useDarkTheme } from "../../hooks/useDarkTheme";
 
-import styles from "./SkeletonCharacterPage.module.scss";
 import "react-loading-skeleton/dist/skeleton.css";
+import styles from "./SkeletonCharacterPage.module.scss";
 
 export const SkeletonCharacterPage: FC = () => {
   const { isDark } = useDarkTheme();

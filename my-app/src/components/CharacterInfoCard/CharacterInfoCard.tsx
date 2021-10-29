@@ -4,7 +4,7 @@ import cn from "classnames";
 import { Maybe } from "../../api/types";
 import { InfoItem } from "../InfoItem/InfoItem";
 import { useDarkTheme } from "../../hooks/useDarkTheme";
-import { getFormatedDate } from "./getFormatedDate";
+import { getFormatedDate } from "./getFormatedDate/getFormatedDate";
 
 import styles from "./CharacterInfoCard.module.scss";
 
@@ -34,6 +34,7 @@ export const CharacterInfoCard: React.FC<CharacterInfoCardProps> = ({
   locationCreated,
 }) => {
   const { isDark } = useDarkTheme();
+
   return (
     <main
       className={cn(styles.MainContainer, {

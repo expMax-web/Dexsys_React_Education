@@ -7,7 +7,7 @@ import { useDarkTheme } from "../../hooks/useDarkTheme";
 import { Input } from "../Input/Input";
 import { TextArea } from "../TextArea/TextArea";
 import { SubmitButton } from "../SubmitButton/SubmitButton";
-import { validateEmail, validateFio } from "./Validaton";
+import { validateEmail, validateFio } from "./validation/Validaton";
 import { ERROR_MESSAGES } from "./Constants";
 
 import styles from "./FeedBackForm.module.scss";
@@ -19,7 +19,7 @@ export type Form = {
   date: string;
 };
 
-export const FeedBackForm = () => {
+export const FeedBackForm: React.FC = () => {
   const { isDark } = useDarkTheme();
   const startDate: Date = new Date(1900, 1, 1);
   const {

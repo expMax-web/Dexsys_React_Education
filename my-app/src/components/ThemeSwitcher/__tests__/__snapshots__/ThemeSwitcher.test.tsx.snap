@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SubmitButton test suite should be render correctly  1`] = `
+<div>
+  <div
+    class="CheckboxContainer"
+  >
+    <input
+      class="Checkbox"
+      id="checkbox"
+      type="checkbox"
+    />
+    <label
+      class=""
+      for="checkbox"
+    >
+      enable dark theme
+    </label>
+  </div>
+</div>
+`;
+
+exports[`ThemeSwitcher test suite should be render correctly  1`] = `
+<div>
+  <div
+    class="CheckboxContainer"
+  >
+    <input
+      class="Checkbox"
+      id="checkbox"
+      type="checkbox"
+    />
+    <label
+      class=""
+      for="checkbox"
+    >
+      enable dark theme
+    </label>
+  </div>
+</div>
+`;
