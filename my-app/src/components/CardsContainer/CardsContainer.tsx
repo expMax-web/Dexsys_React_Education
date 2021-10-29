@@ -28,6 +28,7 @@ export const CardsContainer: React.FC<CardsContainerProps> = ({
   };
 
   window.addEventListener("scroll", checkScrollTop);
+  console.log(characters);
 
   const scrollToTop = () => {
     window.scrollTo({
