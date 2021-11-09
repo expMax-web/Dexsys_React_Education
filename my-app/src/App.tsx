@@ -7,6 +7,8 @@ import { HomePage } from "./pages/HomePage/HomePage";
 import { ThemeContext } from "./context";
 import { useThemeState } from "./hooks/useThemeState";
 
+import "./styles.css";
+
 const App: React.FC = () => {
   const [isDark, setIsDark] = useThemeState();
   return (

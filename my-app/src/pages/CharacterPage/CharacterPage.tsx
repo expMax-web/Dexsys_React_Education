@@ -13,7 +13,7 @@ const CharacterPage: React.FC = () => {
   if (!id) return <h1>id not received, unable to download data</h1>;
 
   return (
-    <div>
+    <div style={{ height: "100%" }}>
       <BackButton>Back</BackButton>
       <CharacterInfoCard
         name={character?.name}
