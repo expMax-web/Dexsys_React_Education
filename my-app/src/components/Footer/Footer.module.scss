@@ -1,0 +1,16 @@
+.Footer {
+  background-color: #86bcfc;
+  padding: 30px 0;
+  min-height: 500px;
+  max-height: max-content;
+  &_Dark {
+    background-color: #23262b;
+  }
+}
+
+.FooterTitle {
+  font-weight: 500;
+  &_Dark {
+    color: white;
+  }
+}

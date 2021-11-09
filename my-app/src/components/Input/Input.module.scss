@@ -1,0 +1,47 @@
+.InputItem {
+  position: relative;
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.Input {
+  font-size: 16px;
+  padding: 5px 10px;
+  display: block;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid rgb(145, 145, 145);
+  background-color: inherit;
+  &:-webkit-autofill {
+    box-shadow: 0 0 0px 1000px #f4f7fc inset;
+  }
+
+  &_Dark {
+    color: white;
+    background-color: inherit;
+    &:-webkit-autofill {
+      box-shadow: 0 0 0px 1000px #636363 inset;
+      -webkit-text-fill-color: white;
+    }
+    &::placeholder {
+      color: white;
+      font-size: 12px;
+    }
+  }
+  &:focus {
+    outline: none;
+    border-bottom: 2px solid rgb(0, 0, 0);
+  }
+}
+
+.LabelInput {
+  font-weight: 500;
+  width: 100%;
+  &_Dark {
+    color: white;
+  }
+}
+
+.Error {
+  color: rgb(253, 69, 69);
+}

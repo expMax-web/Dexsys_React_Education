@@ -1,0 +1,37 @@
+.TextAreaContainer {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.TextArea {
+  width: 100%;
+  height: 100px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: inherit;
+  &_Dark {
+    color: white;
+    border: 1px solid rgb(145, 145, 145);
+  }
+  &_Dark::placeholder {
+    color: white;
+  }
+  &:focus {
+    outline: none;
+    border: 2px solid rgb(0, 0, 0);
+  }
+}
+
+.TextAreaLabel {
+  font-weight: 500;
+  width: 100%;
+  padding-bottom: 10px;
+  &_Dark {
+    color: white;
+  }
+}
+
+.Error {
+  color: rgb(253, 69, 69);
+}

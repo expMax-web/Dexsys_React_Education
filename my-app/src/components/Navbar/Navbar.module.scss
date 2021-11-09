@@ -1,0 +1,15 @@
+.Navbar {
+  background-color: #86bcfc;
+  padding: 15px 0px 25px 50px;
+  height: 75px;
+  &_Dark {
+    background-color: #23262b;
+  }
+}
+
+.NavbarTitle {
+  font-weight: 500;
+  &_Dark {
+    color: white;
+  }
+}

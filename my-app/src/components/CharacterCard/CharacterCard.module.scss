@@ -1,0 +1,39 @@
+.CharacterCard {
+  width: 230px;
+  height: 300px;
+  border-radius: 20px;
+  margin: 60px;
+  overflow: hidden;
+  box-shadow: 0px 0px 15px 10px rgba(34, 60, 80, 0.2);
+}
+
+.CharacterCard:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 0px 15px 10px rgba(0, 0, 0, 0.45);
+  transition: 0.5s;
+}
+
+.ImgContainer {
+  height: 75%;
+}
+
+.CharactersName {
+  background-color: #fcfcfc;
+  height: 25%;
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 20px;
+  padding: 20px;
+  font-size: 20px;
+  &_Dark {
+    background-color: #23262b;
+    color: white;
+  }
+}
+
+.CharacterImg {
+  width: 100%;
+}
+.Link {
+  color: inherit;
+  text-decoration: none;
+}
